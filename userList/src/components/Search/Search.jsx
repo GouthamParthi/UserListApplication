@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Search.module.css";
 import { useState } from "react";
+import SearchIcon from "@mui/icons-material/Search";
 function Search({ onInputChange }) {
   const [debounceTimeout, setDebounceTimeout] = useState();
   const debounce = (value, debounceTimeout) => {
@@ -11,7 +12,13 @@ function Search({ onInputChange }) {
     setDebounceTimeout(timeout);
   };
   return (
-    <div>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        onInputChange(e.target.value);
+      }}
+      className={styles.container}
+    >
       <input
         onKeyUp={(e) => {
           debounce(e.target.value, debounceTimeout);
@@ -19,7 +26,10 @@ function Search({ onInputChange }) {
         placeholder="Search User"
         className={styles.searchBox}
       />
-    </div>
+      <button className={styles.searchIcon} type="submit">
+        <SearchIcon />
+      </button>
+    </form>
   );
 }
 
