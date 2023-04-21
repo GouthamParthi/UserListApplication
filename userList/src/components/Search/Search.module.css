@@ -1,0 +1,10 @@
+.searchBox {
+  width: 25rem;
+  height: 40px;
+  color: var(--color-white);
+  border: none;
+  background-color: var(--color-black);
+  outline: 2px solid var(--color-primary);
+  border-radius: 5px;
+  padding: 8px;
+}

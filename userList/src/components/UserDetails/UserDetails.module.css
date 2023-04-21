@@ -1,0 +1,49 @@
+.users {
+  font-size: 17px;
+}
+.userDetails {
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+  width: 350px;
+  vertical-align: middle;
+}
+.squareLoad {
+  width: 90%;
+}
+.navButtons {
+  display: flex;
+  gap: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 25px;
+}
+.userNames {
+  cursor: pointer;
+  position: relative;
+}
+.userNames:hover {
+  width: 100%;
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-black)
+  );
+}
+.button {
+  border-radius: 10px;
+  width: 100px;
+  height: 60px;
+  color: var(--color-white);
+  background: var(--color-primary);
+  cursor: pointer;
+}
+.buttonDisabled {
+  border-radius: 12px;
+  width: 100px;
+  height: 60px;
+  color: var(--color-black);
+  background: var(--color-grey);
+}

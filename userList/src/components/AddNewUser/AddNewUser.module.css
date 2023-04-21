@@ -1,0 +1,19 @@
+.header {
+  font-size: large;
+  font-weight: 500;
+}
+.modalBody {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  display: flex;
+  flex-direction: column;
+}
+.inputFields {
+  height: 40px;
+  border-radius: 5px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

@@ -1,0 +1,49 @@
+.squares {
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+.square1Anime {
+  width: 50px;
+  height: 50px;
+  background-color: var(--color-primary);
+  animation: square1-animation 1s linear infinite;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.squareLoading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.square2Anime {
+  display: inline;
+  width: 20px;
+  height: 20px;
+  background-color: RGB(12 234 238);
+  animation: square2-animation 1s linear infinite;
+  border-radius: 5px;
+  z-index: 10;
+  position: absolute;
+  top: 32%;
+  left: 30%;
+}
+@keyframes square2-animation {
+  25% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-180deg);
+  }
+}
+@keyframes square1-animation {
+  25% {
+    transform: rotate(-180deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+}

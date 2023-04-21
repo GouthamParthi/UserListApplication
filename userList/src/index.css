@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+:root {
+  /* Global variables to be defined here */
+  --color-primary: rgb(52, 201, 75);
+  --color-white: #ffffff;
+  --color-black: RGB(0 0 0);
+  --color-grey: rgb(202, 202, 202);
+  --color-blackCurrent: rgb(134, 93, 255);
+  --color-skyBlue: rgb(74, 154, 186);
+  --color-orange: rgb(227, 121, 51);
+  --color-green: rgb(92, 184, 92);
+}
+
+body {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  font-family: "Roboto", sans-serif;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+#root,
+#__next {
+  isolation: isolate;
+}
