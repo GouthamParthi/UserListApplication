@@ -29,7 +29,12 @@ function AddNewUser({ handleAddNewUser, show, handlemodal }) {
         >
           Add User
         </Modal.Header>
-        <form type="submit">
+        <form
+          onSubmit={(e) => {
+            handleAddNewUser(e, formData);
+            handlemodal();
+          }}
+        >
           <Modal.Body
             // style={{
             //   fontSize: "20px",
@@ -87,15 +92,7 @@ function AddNewUser({ handleAddNewUser, show, handlemodal }) {
           </Modal.Body>
           <Modal.Footer className="border-0">
             <div style={{ display: "flex", gap: "10px" }}>
-              <Buttons
-                buttonColor="green"
-                buttonName="Add"
-                onButtonClicked={(e) => {
-                  handleAddNewUser(e, formData);
-                  handlemodal();
-                }}
-                type="submit"
-              />
+              <Buttons buttonColor="green" buttonName="Add" type="submit" />
               <Buttons
                 buttonColor="orange"
                 buttonName="Cancel"

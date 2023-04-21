@@ -10,6 +10,9 @@ function Card({ user }) {
         UserName:<strong>{user.FirstNameLastName}</strong>
       </p>
       <p>
+        UserId:<strong>{user.ID}</strong>
+      </p>
+      <p>
         Email:<strong>{user.EmailAddress}</strong>
       </p>
       <p>

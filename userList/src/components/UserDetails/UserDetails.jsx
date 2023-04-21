@@ -34,10 +34,10 @@ function UserDetails({ searchValue }) {
     if (findDuplicate.length > 0) {
       alert("You can't add duplicate user");
     } else {
-      const formDatawithId = { ...formData, id: userList.length + 1 };
+      const formDatawithId = { ...formData, ID: userList.length + 1 };
       const copyOfUserList = [...userList, formDatawithId];
-      setUserList(copyOfUserList);
       localStorage.setItem("userList", JSON.stringify(copyOfUserList));
+      setUserList(copyOfUserList);
     }
   };
   const handleModal = (userId, present) => {
@@ -70,6 +70,7 @@ function UserDetails({ searchValue }) {
         const data = await fetchUsers(pageNumber);
         setUserList(data);
         setFilterUserlist(data);
+        localStorage.setItem("userList", JSON.stringify(data));
       };
       handleFetchUser();
     }
@@ -114,7 +115,9 @@ function UserDetails({ searchValue }) {
                   Previous
                 </button>
                 <button
-                  className={styles.button}
+                  className={
+                    pageNumber < maxPage ? styles.button : styles.buttonDisabled
+                  }
                   name="Next"
                   onClick={handleNavigation}
                 >
