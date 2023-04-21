@@ -32,18 +32,10 @@ function AddNewUser({ handleAddNewUser, show, handleModal }) {
         <form
           onSubmit={(e) => {
             handleAddNewUser(e, formData);
-            M();
+            handleModal();
           }}
         >
-          <Modal.Body
-            // style={{
-            //   fontSize: "20px",
-            //   display: "flex",
-            //   alignItems: "center",
-            //   flexDirection: "column",
-            // }}
-            className={styles.modalBody}
-          >
+          <Modal.Body className={styles.modalBody}>
             <label>Full Name</label>
             <input
               type="text"

@@ -39,7 +39,9 @@ function UserDetails({ searchValue }) {
       const formDatawithId = { ...formData, ID: userList.length + 1 };
       const copyOfUserList = [...userList, formDatawithId];
       localStorage.setItem("userList", JSON.stringify(copyOfUserList));
+      alert("User added successfully");
       setUserList(copyOfUserList);
+      setFilterUserlist(copyOfUserList);
     }
   };
   const handleCard = (userId, present) => {
