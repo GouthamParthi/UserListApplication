@@ -6,6 +6,7 @@ import { useState } from "react";
 function App() {
   const [searchValue, setSearchValue] = useState("");
   const handleSearch = (value) => {
+    console.log(value);
     let valueInLowerCase = value.toLowerCase();
     setSearchValue(valueInLowerCase);
   };
