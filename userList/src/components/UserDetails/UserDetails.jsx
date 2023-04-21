@@ -28,9 +28,17 @@ function UserDetails({ searchValue }) {
   };
   const handleAddNew = (e, formData) => {
     e.preventDefault();
-    const copyOfUserList = [...userList, formData];
-    localStorage.setItem("userList", JSON.stringify(copyOfUserList));
-    setUserList(copyOfUserList);
+    const findDuplicate = userList.filter((user) => {
+      return user.FirstNameLastName === formData.FirstNameLastName;
+    });
+    if (findDuplicate.length > 0) {
+      alert("You can't add duplicate user");
+    } else {
+      const formDatawithId = { ...formData, id: userList.length + 1 };
+      const copyOfUserList = [...userList, formDatawithId];
+      setUserList(copyOfUserList);
+      localStorage.setItem("userList", JSON.stringify(copyOfUserList));
+    }
   };
   const handleModal = (userId, present) => {
     const joinedModal = userList.map((user) => {
@@ -60,7 +68,6 @@ function UserDetails({ searchValue }) {
     } else {
       const handleFetchUser = async () => {
         const data = await fetchUsers(pageNumber);
-        console.log(data);
         setUserList(data);
         setFilterUserlist(data);
       };
@@ -80,7 +87,7 @@ function UserDetails({ searchValue }) {
             <>
               {filterUserlist.slice(startIndex, endIndex).map((user, index) => {
                 return (
-                  <div className={styles.userNames}>
+                  <div className={styles.userNames} key={index}>
                     <h4
                       onMouseEnter={() => {
                         handleModal(user.ID, true);
