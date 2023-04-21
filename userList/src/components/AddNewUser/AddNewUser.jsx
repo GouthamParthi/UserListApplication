@@ -2,7 +2,7 @@ import Modal from "react-bootstrap/Modal";
 import Buttons from "../Buttons/Buttons";
 import styles from "./AddNewUser.module.css";
 import { useState } from "react";
-function AddNewUser({ handleAddNewUser, show, handlemodal }) {
+function AddNewUser({ handleAddNewUser, show, handleModal }) {
   const initialState = Object.freeze({
     Company: "",
     Email: "",
@@ -22,7 +22,7 @@ function AddNewUser({ handleAddNewUser, show, handlemodal }) {
   };
   return (
     <>
-      <Modal show={show} onHide={handlemodal}>
+      <Modal show={show} onHide={handleModal}>
         <Modal.Header
           closeButton
           className="border-0 text-dark fs-3 fw-bolder "
@@ -32,7 +32,7 @@ function AddNewUser({ handleAddNewUser, show, handlemodal }) {
         <form
           onSubmit={(e) => {
             handleAddNewUser(e, formData);
-            handlemodal();
+            M();
           }}
         >
           <Modal.Body
@@ -96,7 +96,7 @@ function AddNewUser({ handleAddNewUser, show, handlemodal }) {
               <Buttons
                 buttonColor="orange"
                 buttonName="Cancel"
-                onButtonClicked={handlemodal}
+                onButtonClicked={handleModal}
               />
             </div>
           </Modal.Footer>

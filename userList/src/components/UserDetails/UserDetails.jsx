@@ -12,7 +12,9 @@ function UserDetails({ searchValue }) {
   const rowPerpage = 10;
   let endIndex = (pageNumber + 1) * rowPerpage;
   let startIndex = endIndex - rowPerpage;
-  let maxPage = userList ? Math.floor(userList.length / rowPerpage) : 0;
+  let maxPage = filterUserlist
+    ? Math.floor(filterUserlist.length / rowPerpage)
+    : 0;
   const handleNavigation = (e) => {
     const { name } = e.target;
     if (name === "Previous" && pageNumber > 0) {
@@ -21,7 +23,7 @@ function UserDetails({ searchValue }) {
       setPageNumber((currentPage) => currentPage + 1);
     }
   };
-  const handlemodal = () => {
+  const handleModal = () => {
     setShowModal((prevState) => {
       return !prevState;
     });
@@ -40,8 +42,8 @@ function UserDetails({ searchValue }) {
       setUserList(copyOfUserList);
     }
   };
-  const handleModal = (userId, present) => {
-    const joinedModal = userList.map((user) => {
+  const handleCard = (userId, present) => {
+    const joinedModal = filterUserlist.map((user) => {
       if (user.ID === userId) {
         return { ...user, modalOn: present };
       } else {
@@ -67,7 +69,7 @@ function UserDetails({ searchValue }) {
       setFilterUserlist(localUserList);
     } else {
       const handleFetchUser = async () => {
-        const data = await fetchUsers(pageNumber);
+        const data = await fetchUsers();
         setUserList(data);
         setFilterUserlist(data);
         localStorage.setItem("userList", JSON.stringify(data));
@@ -80,7 +82,7 @@ function UserDetails({ searchValue }) {
       <AddNewUser
         handleAddNewUser={handleAddNew}
         show={showmodal}
-        handlemodal={handlemodal}
+        handleModal={handleModal}
       />
       <div className={styles.users}>
         <div className={styles.userDetails}>
@@ -91,10 +93,10 @@ function UserDetails({ searchValue }) {
                   <div className={styles.userNames} key={index}>
                     <h4
                       onMouseEnter={() => {
-                        handleModal(user.ID, true);
+                        handleCard(user.ID, true);
                       }}
                       onMouseLeave={() => {
-                        handleModal(user.ID, false);
+                        handleCard(user.ID, false);
                       }}
                     >
                       {user.FirstNameLastName}
@@ -126,7 +128,7 @@ function UserDetails({ searchValue }) {
                 <button
                   className={styles.button}
                   name="AddNew"
-                  onClick={handlemodal}
+                  onClick={handleModal}
                 >
                   Add New
                 </button>
