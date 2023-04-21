@@ -7,10 +7,10 @@ function Card({ user }) {
         <strong>{user.JobTitle}</strong>
       </h3>
       <p>
-        UserName:<strong>{user.FirstNameLastName}</strong>
+        Name:<strong>{user.FirstNameLastName}</strong>
       </p>
       <p>
-        UserId:<strong>{user.ID}</strong>
+        Id:<strong>{user.ID}</strong>
       </p>
       <p>
         Email:<strong>{user.EmailAddress}</strong>
