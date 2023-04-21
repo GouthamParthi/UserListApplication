@@ -45,14 +45,14 @@ function UserDetails({ searchValue }) {
     }
   };
   const handleCard = (userId, present) => {
-    const joinedModal = filterUserlist.map((user) => {
+    const joinedCard = filterUserlist.map((user) => {
       if (user.ID === userId) {
-        return { ...user, modalOn: present };
+        return { ...user, cardOn: present };
       } else {
-        return { ...user, modalOn: present ? !present : present };
+        return { ...user, cardOn: present ? !present : present };
       }
     });
-    setFilterUserlist(joinedModal);
+    setFilterUserlist(joinedCard);
   };
   useEffect(() => {
     if (searchValue.length === 0) {
@@ -103,7 +103,7 @@ function UserDetails({ searchValue }) {
                     >
                       {user.FirstNameLastName}
                     </h4>
-                    {user.modalOn ? <Card user={user} /> : null}
+                    {user.cardOn ? <Card user={user} /> : null}
                   </div>
                 );
               })}
